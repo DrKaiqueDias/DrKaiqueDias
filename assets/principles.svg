@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="148" viewBox="0 0 1000 148" role="img" aria-labelledby="title desc">
+<title id="title">Intelligence, judgment, impact</title>
+<desc id="desc">Three professional pillars connected by a subtle animated line.</desc>
+<defs><linearGradient id="bg"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#102c37"/></linearGradient>
+<style>text{font-family:Arial,Helvetica,sans-serif}.signal{stroke-dasharray:65 850;animation:flow 12s linear infinite}@keyframes flow{to{stroke-dashoffset:-915}}@media(prefers-reduced-motion:reduce){.signal{animation:none}}</style></defs>
+<rect width="1000" height="148" rx="16" fill="url(#bg)"/>
+<path d="M65 109H935" stroke="#244450" stroke-width="2"/>
+<path class="signal" d="M65 109H935" stroke="#59d5ce" stroke-width="2" fill="none"/>
+<g fill="#f0f5f7" font-size="20" font-weight="700"><text x="42" y="48">01 / Intelligence</text><text x="367" y="48">02 / Judgment</text><text x="692" y="48">03 / Impact</text></g>
+<g fill="#abc2cc" font-size="14"><text x="42" y="76">Evaluate deeply. Refine deliberately.</text><text x="367" y="76">Weigh risk. Make clear decisions.</text><text x="692" y="76">Lead people. Build lasting value.</text></g>
+<g fill="#d5b878"><circle cx="65" cy="109" r="4"/><circle cx="390" cy="109" r="4"/><circle cx="715" cy="109" r="4"/></g>
+</svg>
