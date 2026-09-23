@@ -9,9 +9,11 @@
 
 ### About me
 
-I'm **Kaique**, an **Oracle at Scale AI**, working on the evaluation, validation and refinement of LLM outputs. My focus is **AI quality assurance, prompt analysis, data validation and Trust & Safety**—especially where ambiguity, edge cases and policy requirements meet.
+I'm **Kaique Dias**, based in Rio de Janeiro, Brazil. I work as an **Oracle at Scale AI**, reviewing complex model responses, refining prompts and helping maintain quality standards. Much of this work comes down to judgment: understanding context, resolving ambiguity and knowing when an answer needs a closer look.
 
-I combine technical curiosity with experience in leadership and financial markets. As a final-semester **Law student at Universidade Estácio de Sá**, I also bring a legal and regulatory perspective to responsible AI. Based in **Rio de Janeiro, Brazil**.
+My background spans financial markets, leadership and law. Over the past decade, investments and risk management have shaped how I approach decisions. I'm also in the final semester of my **Law degree at Universidade Estácio de Sá**, with an interest in how regulation, security and emerging technologies affect one another.
+
+Here I share projects in **Python, AI quality assurance and prompt engineering**, alongside my research. I value clear reasoning, work that can be checked and results that have a practical purpose.
 
 ### What I focus on
 
@@ -29,14 +31,14 @@ I combine technical curiosity with experience in leadership and financial market
 
 **Python · C · Git/GitHub · GitHub Actions · GitLab · Azure · Linux · Windows · macOS · Photoshop**
 
-Tools below reflect my professional experience, coursework and creative or localization projects. They are not claims of equal proficiency across every platform.
+My toolkit brings together tools I use at work, technologies I study and platforms where I contribute.
 
 <details>
 <summary><strong>AI services, creative tools & localization</strong></summary>
 <br/>
 <img src="assets/ai-toolkit.svg" width="100%" alt="ChatGPT, Azure OpenAI, Azure AI Vision, Search, Speech, Language, Document Intelligence, Midjourney, Lexica.art, Crowdin, Ethereum.org and Khan Academy" />
 
-Azure AI services and generative AI feature in my training and projects. Localization contributions include Crowdin, Ethereum.org, GitLab and Khan Academy.
+My Azure training covers language, vision, search, speech and document intelligence. I've also contributed to localization through Crowdin, Ethereum.org, GitLab and Khan Academy.
 </details>
 
 <details>
@@ -44,7 +46,7 @@ Azure AI services and generative AI feature in my training and projects. Localiz
 <br/>
 <img src="assets/productivity-toolkit.svg" width="100%" alt="Microsoft Office, Excel, PowerPoint, LibreOffice Calc, Impress and CorelDRAW" />
 
-Additional background in spreadsheets, presentations, design and technology instruction.
+I also work with spreadsheets, presentations and design, and have experience teaching technology.
 </details>
 
 ### Learning & qualifications
@@ -56,13 +58,13 @@ Additional background in spreadsheets, presentations, design and technology inst
 
 ### Python projects
 
-Small, reproducible projects with synthetic examples, clear assumptions and automated tests.
+These projects connect three areas of my background: reviewing AI responses, checking data quality and understanding financial risk. Each includes sample data and tests.
 
-| Project | What it demonstrates |
+| Project | What it does |
 | :--- | :--- |
-| [**LLM Eval Lite**](https://github.com/DrKaiqueDias/llm-eval-lite) | Offline response checks, JSON validation and regression reporting |
-| [**CSV Quality Audit**](https://github.com/DrKaiqueDias/csv-quality-audit) | Streaming validation, numeric checks and data quality gates |
-| [**Portfolio Risk Lab**](https://github.com/DrKaiqueDias/portfolio-risk-lab) | Transparent calculations for returns, volatility and drawdown |
+| [**LLM Eval Lite**](https://github.com/DrKaiqueDias/llm-eval-lite) | Checks saved model responses against explicit rules |
+| [**CSV Quality Audit**](https://github.com/DrKaiqueDias/csv-quality-audit) | Checks CSV files for missing values, invalid numbers and malformed rows |
+| [**Portfolio Risk Lab**](https://github.com/DrKaiqueDias/portfolio-risk-lab) | Calculates returns, volatility and drawdown from portfolio values |
 
 ### Research & initiatives
 
@@ -73,14 +75,14 @@ I also built a healthcare data MVP combining blockchain, AI facial recognition, 
 
 ### Let's connect
 
-I'm interested in **AI quality, QA, prompt engineering and responsible innovation**.  
+I'm open to exchanging ideas about **AI evaluation, QA and prompt engineering**, especially with people working through these problems in practice.  
 [**Connect with me on LinkedIn ↗**](https://www.linkedin.com/in/kaique-dias-541b23324)
 
 ---
 
-### Contribution snake · split & reunite
+### Beyond the work
 
-One path becomes two, then comes back together. A daily-updated animation of my contribution calendar.
+A small animation of my contributions: two snakes take different routes and meet again near the end.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DrKaiqueDias/DrKaiqueDias/output/github-snake-dark.svg" />
