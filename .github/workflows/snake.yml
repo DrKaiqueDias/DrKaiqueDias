@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/snake.yml'
+      - 'scripts/**'
 
 permissions:
   contents: write
@@ -21,6 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Testar efeito de divisao e reuniao
+        run: python -m unittest discover -s scripts -v
       - name: Gerar animacoes clara e escura
         uses: Platane/snk/svg-only@v3
         with:
@@ -30,6 +37,9 @@ jobs:
             dist/github-snake-dark.svg?palette=github-dark&color_snake=%2359d5ce
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Adicionar segunda cobra e reuniao
+        run: python scripts/enhance_snake.py dist/github-snake.svg dist/github-snake-dark.svg
 
       - name: Publicar animacoes na branch output
         env:
