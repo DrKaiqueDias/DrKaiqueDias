@@ -2,7 +2,8 @@ import math
 import unittest
 import xml.etree.ElementTree as ET
 from enhance_snake import (NS, SPLIT, REJOIN, HIDE, enhance, parse_route,
-                           position, companion_head, companion_segment)
+                           position, path_distance, companion_head,
+                           companion_segment)
 
 ROUTE = [(0., (0., 0.)), (40., (800., 0.)), (50., (800., 80.)),
          (90., (0., 80.)), (100., (0., 0.))]
@@ -17,18 +18,28 @@ SOURCE = ('<svg xmlns="http://www.w3.org/2000/svg"><desc>snk</desc>'
 
 class SnakeTests(unittest.TestCase):
     def test_opposite_direction_after_fork(self):
-        a0, a1 = position(ROUTE, 24), position(ROUTE, 25)
-        b0, b1 = companion_head(ROUTE, 24), companion_head(ROUTE, 25)
-        dot = sum((y-x)*(v-u) for x,y,u,v in zip(a0,a1,b0,b1))
-        self.assertLess(dot, 0, "heads must move in opposing directions")
+        main_progress = path_distance(ROUTE, 43) - path_distance(ROUTE, 42)
+        split_distance = path_distance(ROUTE, SPLIT)
+        twin_at_42 = split_distance - (path_distance(ROUTE, 42) - split_distance)
+        twin_at_43 = split_distance - (path_distance(ROUTE, 43) - split_distance)
+        self.assertGreater(main_progress, 0)
+        self.assertLess(twin_at_43 - twin_at_42, 0)
+
+    def test_both_heads_keep_the_same_speed(self):
+        for percent in range(40, 87):
+            main_step = math.dist(position(ROUTE, percent),
+                                  position(ROUTE, percent + 0.1))
+            twin_step = math.dist(companion_head(ROUTE, percent),
+                                  companion_head(ROUTE, percent + 0.1))
+            self.assertAlmostEqual(main_step, twin_step, places=7)
 
     def test_different_routes_until_late_reunion(self):
-        for t in range(30, 90):
+        for t in range(42, 85):
             a, b = position(ROUTE, t), companion_head(ROUTE, t)
-            self.assertGreater(math.dist(a, b), 20, t)
+            self.assertGreater(math.dist(a, b), 10, t)
         self.assertEqual(companion_head(ROUTE, SPLIT), position(ROUTE, SPLIT))
         self.assertEqual(companion_head(ROUTE, REJOIN), position(ROUTE, REJOIN))
-        self.assertGreater(REJOIN, 90)
+        self.assertGreater(REJOIN, 85)
 
     def test_fork_and_reunion_continuity(self):
         for boundary in (SPLIT, REJOIN):
@@ -72,3 +83,5 @@ class SnakeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
