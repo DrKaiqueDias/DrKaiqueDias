@@ -58,10 +58,12 @@ I also work with spreadsheets, presentations and design, and have experience tea
 
 ### Python projects
 
-These projects connect three areas of my background: reviewing AI responses, checking data quality and understanding financial risk. Each includes sample data and tests.
+These projects bring together my work with AI quality, my interest in training models and my background in financial markets. Each includes examples you can run and tests for the main checks.
 
 | Project | What it does |
 | :--- | :--- |
+| [**Fine-tune Data Prep**](https://github.com/DrKaiqueDias/finetune-data-prep) | Checks instruction datasets and builds repeatable train/validation splits |
+| [**Text Training Baseline**](https://github.com/DrKaiqueDias/text-training-baseline) | Trains a text classifier and evaluates it on separate data |
 | [**LLM Eval Lite**](https://github.com/DrKaiqueDias/llm-eval-lite) | Checks saved model responses against explicit rules |
 | [**CSV Quality Audit**](https://github.com/DrKaiqueDias/csv-quality-audit) | Checks CSV files for missing values, invalid numbers and malformed rows |
 | [**Portfolio Risk Lab**](https://github.com/DrKaiqueDias/portfolio-risk-lab) | Calculates returns, volatility and drawdown from portfolio values |
@@ -89,3 +91,5 @@ A small animation of my contributions: two snakes take different routes and meet
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DrKaiqueDias/DrKaiqueDias/output/github-snake.svg" />
   <img width="100%" alt="My contribution calendar with a teal snake and a gold companion that splits off and rejoins during each loop." src="https://raw.githubusercontent.com/DrKaiqueDias/DrKaiqueDias/output/github-snake.svg" />
 </picture>
+
+
