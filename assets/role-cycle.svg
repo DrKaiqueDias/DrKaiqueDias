@@ -1,3 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="65" viewBox="0 0 900 65" role="img" aria-label="Evaluate models. Test the edge cases. Refine the prompt.">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="65" viewBox="0 0 900 65" role="img" aria-label="AI Quality Assurance. Prompt Engineering. Python.">
 <style>text{font:600 24px Arial,Helvetica,sans-serif;fill:#42bbae;text-anchor:middle}.a{animation:a 12s infinite}.b{opacity:0;animation:b 12s infinite}.c{opacity:0;animation:c 12s infinite}@keyframes a{0%,27%,100%{opacity:1}33%,94%{opacity:0}}@keyframes b{0%,28%,66%,100%{opacity:0}34%,60%{opacity:1}}@keyframes c{0%,61%,100%{opacity:0}67%,94%{opacity:1}}@media(prefers-reduced-motion:reduce){.a{animation:none}.b,.c{display:none}}</style>
-<text class="a" x="450" y="39">Evaluate models with a critical eye.</text><text class="b" x="450" y="39">Test the edge cases. Raise the quality bar.</text><text class="c" x="450" y="39">Refine the prompt. Make the output matter.</text></svg>
+<text class="a" x="450" y="39">AI Quality Assurance &amp; LLM Evaluation</text><text class="b" x="450" y="39">Prompt Engineering &amp; Data Validation</text><text class="c" x="450" y="39">Python &amp; Automation</text></svg>
+
