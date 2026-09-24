@@ -1,4 +1,4 @@
-"""Give the contribution snake an independent, counter-running companion."""
+"""Add a second contribution snake that takes the opposite way around."""
 import argparse
 import copy
 import math
@@ -7,7 +7,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 NS = "http://www.w3.org/2000/svg"
-SPLIT, REJOIN, HIDE = 20.0, 92.0, 97.0
+SPLIT, REJOIN, HIDE = 38.0, 88.0, 91.0
 ET.register_namespace("", NS)
 
 
@@ -38,24 +38,44 @@ def position(route, percent):
     return route[-1][1]
 
 
+def path_distance(route, percent):
+    percent = max(0.0, min(100.0, percent))
+    travelled = 0.0
+    for (start_time, start), (end_time, end) in zip(route, route[1:]):
+        length = math.dist(start, end)
+        if percent >= end_time:
+            travelled += length
+            continue
+        if percent > start_time:
+            travelled += length * (percent - start_time) / (end_time - start_time)
+        break
+    return travelled
+
+
+def position_at_distance(route, distance):
+    total = path_distance(route, 100.0)
+    distance %= total
+    for (_, start), (_, end) in zip(route, route[1:]):
+        length = math.dist(start, end)
+        if distance <= length:
+            weight = 0.0 if length == 0 else distance / length
+            return tuple(a + (b - a) * weight for a, b in zip(start, end))
+        distance -= length
+    return route[0][1]
+
+
 def companion_head(route, percent):
     if percent <= SPLIT or percent >= REJOIN:
         return position(route, percent)
-    progress = (percent - SPLIT) / (REJOIN - SPLIT)
-    # The main snake travels forward over 72% of its timeline. The companion
-    # follows the complementary 28% BACKWARDS, ending at the same late point.
-    reverse_phase = (SPLIT - progress * (100 - REJOIN + SPLIT)) % 100
-    x, y = position(route, reverse_phase)
-    # A separate lane also distinguishes the geometrical paths between forks.
-    return x, y + 24 * math.sin(math.pi * progress) ** 2
+    split_distance = path_distance(route, SPLIT)
+    travelled = path_distance(route, percent) - split_distance
+    return position_at_distance(route, split_distance - travelled)
 
 
 def companion_segment(head_route, own_route, index, percent):
     original = position(own_route, percent)
     if percent <= SPLIT or percent >= HIDE:
         return original
-    # Tail follows the companion's own history instead of copying the main
-    # snake's segment animations. Blend only at the fork and final reunion.
     independent = companion_head(head_route, max(0, percent - index * 0.85))
     weight = min(1.0, (percent - SPLIT) / 3, (HIDE - percent) / 3)
     weight = weight * weight * (3 - 2 * weight)
@@ -85,11 +105,12 @@ def enhance(source):
         routes.append(parse_route(style.text, names[0]))
     style.text = re.sub(r"\d+ms", f"{duration}ms", style.text)
     style.text += f"""
-#split-companion{{opacity:0;animation:companion-visibility {duration}ms linear infinite}}
+#split-companion{{opacity:0;animation:companion-visibility {duration}ms linear infinite;
+filter:drop-shadow(0 0 2px #d5b878)}}
 @keyframes companion-visibility{{
-  0%,20%{{opacity:0}}20.1%,96.8%{{opacity:1}}97%,100%{{opacity:0}}
+  0%,38%{{opacity:0}}38.6%,89.6%{{opacity:1}}91%,100%{{opacity:0}}
 }}
-.twin{{shape-rendering:geometricPrecision;fill:#d5b878;
+.twin{{shape-rendering:geometricPrecision;fill:#e0bc63;
 animation-duration:{duration}ms;animation-timing-function:linear;animation-iteration-count:infinite}}
 @media(prefers-reduced-motion:reduce){{
 .s,.c,.u,.twin,#split-companion{{animation:none!important}}
@@ -97,8 +118,6 @@ animation-duration:{duration}ms;animation-timing-function:linear;animation-itera
 }}
 """
     group = ET.Element(f"{{{NS}}}g", {"id": "split-companion", "aria-hidden": "true"})
-    # Half-percent samples plus exact fork/merge boundaries make a smooth,
-    # self-contained SVG without scripts or external dependencies.
     times = sorted({i / 2 for i in range(201)} | {SPLIT, REJOIN, HIDE})
     for index, (element, route) in enumerate(zip(snakes, routes)):
         duplicate = copy.deepcopy(element)
@@ -114,13 +133,13 @@ animation-duration:{duration}ms;animation-timing-function:linear;animation-itera
         style.text += f".twin-{index}{{animation-name:twin-route-{index}}}"
     root.append(group)
     title = ET.Element(f"{{{NS}}}title")
-    title.text = "Two snakes take opposite routes and reunite near the end"
+    title.text = "Two snakes circle the contribution graph in opposite directions"
     root.insert(0, title)
     desc = root.find(f"{{{NS}}}desc")
     if desc is not None:
         desc.text = ((desc.text or "") +
-                     ". A gold companion follows its own reverse route from 20% "
-                     "of the loop, reunites at 92%, and becomes one snake by 97%. "
+                     ". A gold companion takes the opposite direction at the same "
+                     "speed, meets the main snake at 88%, and becomes one by 91%. "
                      "Contribution data is unchanged.")
     return ET.tostring(root, encoding="unicode")
 
@@ -136,3 +155,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
