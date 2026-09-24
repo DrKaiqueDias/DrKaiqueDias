@@ -6,10 +6,11 @@
 <path d="M0 211Q240 172 480 219T960 203V270H0Z" fill="url(#wave)" opacity=".11"><animate attributeName="d" dur="14s" repeatCount="indefinite" values="M0 211Q240 172 480 219T960 203V270H0Z;M0 211Q240 245 480 207T960 203V270H0Z;M0 211Q240 172 480 219T960 203V270H0Z"/></path>
 <path d="M0 246Q250 217 500 242T960 224V270H0Z" fill="#65d6ce" opacity=".13"/>
 <circle class="pulse" cx="50" cy="45" r="4" fill="#67ded2"/>
-<text x="66" y="50" font-size="13" letter-spacing="3" fill="#bbd3de">HUMAN JUDGMENT · BETTER AI</text>
+<text x="66" y="50" font-size="13" letter-spacing="3" fill="#bbd3de">AI · FINANCE · LAW</text>
 <text x="46" y="122" font-size="62" font-weight="700" letter-spacing="-2" fill="#f4f8ff">Kaique Dias</text>
 <text x="49" y="167" font-size="24" fill="#82e8db">AI Quality Assurance · Prompt Engineering</text>
 <text x="50" y="202" font-size="17" fill="#bed0dd">Oracle at Scale AI  /  LLM Evaluation  /  Python</text>
 <g transform="translate(814 94)" fill="none" stroke="#86babf"><circle r="53" opacity=".25"/><path d="M-32-22L32-22L0 35Z" opacity=".6"/><path d="M0-45V35M-32-22L46 15M32-22L-46 15" opacity=".2"/></g>
 <g fill="#d5b878"><circle cx="782" cy="72" r="6"/><circle cx="846" cy="72" r="6"/><circle class="pulse" cx="814" cy="129" r="7"/></g>
 </svg>
+
